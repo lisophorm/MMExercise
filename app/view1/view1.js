@@ -15,6 +15,25 @@ angular.module('myApp.view1', ['ngRoute'])
         var users = [];
         $scope.posts = [];
 
+        $scope.displayComments = function (post) {
+            console.log('display comments for ', post);
+            dataFactory.getComments(post.id).then(
+                function (result) {
+                    post.expanded = true;
+
+                    console.log('comments');
+                    console.log(result);
+                    post.comments = result.data;
+                }
+            ).catch(function (error) {
+                console.log('error retrieving comments', error);
+            });
+        }
+
+        $scope.hideComments = function (post) {
+            post.expanded = false;
+
+        }
 
         dataFactory.getPosts()
             .then(function (result) {
