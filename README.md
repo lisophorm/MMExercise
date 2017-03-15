@@ -1,3 +1,5 @@
+demo url:http://test.crystal-bits.co.uk/#!/posts
+
 Because of this extremely short time I have used the Angular-seed. I usually use the yeoman generator with a more dynamic assembling ot the project.
 Here everything is static in inde.html while I prefer a Gulp script that complies and injects the dependencies into index.html
 
@@ -17,7 +19,7 @@ Presentation ->
     view2.js        Posts by user controller
     
     
-
+Github: https://github.com/lisophorm/MMExercise.git
 
 
 ### Install Dependencies

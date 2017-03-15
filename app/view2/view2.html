@@ -1,1 +1,39 @@
-<p>This is the partial for view 2.</p>
+Please select an author <select ng-model = "currentUser" ng-change = "onChangedUser()">
+  <option ng-repeat = "item in userList" value = "{{item.id}}">{{item.name}} ({{item.username}})</option>
+</select>
+<ul class = "menu">
+  <li><a href = "#!/posts">back to posts</a></li>
+</ul>
+<table border = "1">
+  <tr>
+    <td>Posts from <strong>{{userList[currentUser-1].name}}</strong></td>
+    <td>Show<br/>Comments</td>
+
+  </tr>
+  <tr ng-repeat-start = "post in posts">
+    <td><strong>{{post.title}}</strong><br/>{{post.body}}</td>
+    <td>
+      <button ng-if = "post.expanded" ng-click = "hideComments(post)">-</button>
+      <button ng-if = "!post.expanded" ng-click = "displayComments(post)">+</button>
+    </td>
+  </tr>
+  <tr ng-if = "post.expanded" ng-repeat-end = "">
+    <td colspan = "2">
+
+      <p ng-repeat-start = "comment in post.comments">
+
+        <strong>{{comment.name}}</strong>
+        <br/>
+
+        {{comment.body}}
+        <br/>
+
+        <a href = "mailto:{{comment.email}}">{{comment.email}}</a>
+
+      </p>
+      <hr ng-repeat-end = ""/>
+
+
+    </td>
+  </tr>
+</table>
