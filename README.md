@@ -1,49 +1,33 @@
-# `angular-seed` — the seed for AngularJS apps
+Because of this extremely short time I have used the Angular-seed. I usually use the yeoman generator with a more dynamic assembling ot the project.
+Here everything is static in inde.html while I prefer a Gulp script that complies and injects the dependencies into index.html
 
-This project is an application skeleton for a typical [AngularJS][angularjs] web app. You can use it
-to quickly bootstrap your angular webapp projects and dev environment for these projects.
+### Project structure
 
-The seed contains a sample AngularJS application and is preconfigured to install the Angular
-framework and a bunch of development and testing tools for instant web development gratification.
-
-The seed app doesn't do much, just shows how to wire two controllers and views together.
+Data layer -> DataFactory.js
+This factory contains everyting related the data that interacts with https://jsonplaceholder.typicode.com
+Some methods make multiple calls in sequence and I have used a promise chain. I could have done more with error handling.
 
 
-## Getting Started
+Presentation ->
 
-To get you started you can simply clone the `angular-seed` repository and install the dependencies:
+    view1.html      Posts layout
+    view1.js        Posts controller
+    
+    view2.html      Posts by user layout
+    view2.js        Posts by user controller
+    
+    
 
-### Prerequisites
 
-You need git to clone the `angular-seed` repository. You can get git from [here][git].
-
-We also use a number of Node.js tools to initialize and test `angular-seed`. You must have Node.js
-and its package manager (npm) installed. You can get them from [here][node].
-
-### Clone `angular-seed`
-
-Clone the `angular-seed` repository using git:
-
-```
-git clone https://github.com/angular/angular-seed.git
-cd angular-seed
-```
-
-If you just want to start a new project without the `angular-seed` commit history then you can do:
-
-```
-git clone --depth=1 https://github.com/angular/angular-seed.git <your-project-name>
-```
-
-The `depth=1` tells git to only pull down one commit worth of historical data.
 
 ### Install Dependencies
 
 ```
 npm install
+bower_install
 ```
 
-bower_install
+
 * `node_modules` - contains the npm packages for the tools we need
 * `app/bower_components` - contains the Angular framework files
 
@@ -60,6 +44,6 @@ this server is:
 npm start
 ```
 
-Now browse to the app at [`localhost:8000/index.html`][local-app-url].
+The livereload shoulr launch [http://127.0.0.1:8000/#!/posts] otherwise open this link manually
 
 
